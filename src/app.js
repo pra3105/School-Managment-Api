@@ -44,11 +44,9 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ── Start server ───────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`\n🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📌 POST http://localhost:${PORT}/addSchool`);
-  console.log(`📌 GET  http://localhost:${PORT}/listSchools?latitude=23.02&longitude=72.57\n`);
+// ── Start server (FIXED FOR RAILWAY) ───────────────────────────────────────────
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
 
 module.exports = app;
