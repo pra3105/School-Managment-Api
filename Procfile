@@ -1,1 +1,1 @@
-web: node src/config/initDb.js && node src/app.js
+web: node src/config/initDb.js; node src/app.js
