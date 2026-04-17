@@ -21,7 +21,7 @@ const addSchool = async (req, res) => {
   try {
     const { name, address, latitude, longitude } = req.body;
 
-    const [result] = await db.execute(
+    const [result] = await db.query(
       'INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)',
       [name.trim(), address.trim(), parseFloat(latitude), parseFloat(longitude)]
     );
@@ -53,7 +53,7 @@ const listSchools = async (req, res) => {
     const userLat = parseFloat(req.query.latitude);
     const userLon = parseFloat(req.query.longitude);
 
-    const [schools] = await db.execute('SELECT * FROM schools');
+    const [schools] = await db.query('SELECT * FROM schools');
 
     if (schools.length === 0) {
       return res.status(200).json({
